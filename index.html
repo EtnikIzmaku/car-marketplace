@@ -25,7 +25,30 @@
             <li><a href="login.html" id="loginBtn">Login</a></li>
         </ul>
     </nav>
+    <section class="hero">
+        <h1>BLITZ Auto Market</h1>
+        <p>Buy & Sell Cars with Confidence</p>
+    </section>
 
+    <!-- search -->
+    <section class="search-section">
+        <input type="text" id="brand" placeholder="Brand">
+        <input type="text" id="model" placeholder="Model">
+        <input type="number" id="price" placeholder="Max Price">
+        <button onclick="searchCars()">Search</button>
+    </section>
+
+    <!-- slideri per vetura-->
+    <section class="slider-section">
+        <h2 class="slider-title">Hot Deals & Low Prices</h2>
+        <div class="slider" id="carSlider">
+            <img src="img/vetura/rs7.png" class="active">
+            <img src="img/vetura/MercC.png">
+            <img src="img/vetura/cls.webp">
+            <img src="img/vetura/m5f90.webp">
+        </div>
+    </section>
+    
 </body>
 
 </html>
