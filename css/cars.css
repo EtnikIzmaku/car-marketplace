@@ -344,3 +344,13 @@
 .add-car-form button:hover {
     background-color: #2e7ddf;
 }
+
+@media (max-width: 600px) {
+    .add-car-section {
+        padding: 15px;
+    }
+
+    .add-car-form {
+        padding: 20px;
+    }
+}
