@@ -203,3 +203,101 @@
         gap: 10px;
     }
 }
+
+/* ketu vazhdon stilizim edhe per faqen car-details.html */
+.car-details-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.car-image {
+    background-color: #f4f6f8;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.car-image img {
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.car-info {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.car-info h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.car-info .price {
+    font-size: 22px;
+    color: #4da3ff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.car-specs {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.car-specs li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #4da3ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.contact-btn:hover {
+    background-color: #2e7ddf;
+}
+
+/* stilizimi i pershkrimit */
+.car-description {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    background-color: #f4f6f8;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.car-description h2 {
+    margin-bottom: 10px;
+}
+
+.car-description p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+@media (max-width: 900px) {
+    .car-details-container {
+        grid-template-columns: 1fr;
+    }
+
+    .car-image img {
+        height: 260px;
+    }
+}
