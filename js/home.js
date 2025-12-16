@@ -6,22 +6,24 @@ const loginBtn = document.getElementById("loginBtn");
 const addCarLink = document.getElementById("addCarLink");
 const profileLink = document.getElementById("profileLink");
 
+// ketu kontrollohet nese eshte bere login
 if (isLoggedIn === "true") {
     logoutBtn.style.display = "inline";
     loginBtn.style.display = "none";
 } else {
     logoutBtn.style.display = "none";
-    profileLink.style.display = "none";
+    loginBtn.style.display = "inline";
 }
 
-// funksionaliteti kur user behet logout
-logoutBtn.addEventListener("click", function () {
+// logout
+logoutBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     localStorage.removeItem("isLoggedIn");
     alert("Logged out successfully");
     window.location.reload();
 });
 
-// user duhet te jete login per te shtuar nje veture
+//user duhet te jete log in qe te shtoje veture
 addCarLink.addEventListener("click", function (e) {
     if (isLoggedIn !== "true") {
         e.preventDefault();
@@ -29,7 +31,16 @@ addCarLink.addEventListener("click", function (e) {
         window.location.href = "login.html";
     }
 });
-// 
+
+// user duhet te jete log in qe te shikoje profilin
+profileLink.addEventListener("click", function (e) {
+    if (isLoggedIn !== "true") {
+        e.preventDefault();
+        alert("You must be logged in to view your profile.");
+        window.location.href = "login.html";
+    }
+});
+
 function searchCars() {
     const brand = document.getElementById("brand").value;
     const model = document.getElementById("model").value;
