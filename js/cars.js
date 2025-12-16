@@ -10,19 +10,28 @@ if (isLoggedIn === "true") {
     loginBtn.style.display = "none";
 } else {
     logoutBtn.style.display = "none";
-    profileLink.style.display = "none";
+    loginBtn.style.display = "inline";
 }
 
-logoutBtn.addEventListener("click", () => {
+logoutBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     localStorage.removeItem("isLoggedIn");
     alert("Logged out successfully");
     window.location.reload();
 });
 
-addCarLink.addEventListener("click", (e) => {
+addCarLink.addEventListener("click", function (e) {
     if (isLoggedIn !== "true") {
         e.preventDefault();
         alert("You must be logged in to add a car.");
-        window.location.href = "../login.html";
+        window.location.href = "login.html";
+    }
+});
+
+profileLink.addEventListener("click", function (e) {
+    if (isLoggedIn !== "true") {
+        e.preventDefault();
+        alert("You must be logged in to view your profile.");
+        window.location.href = "login.html";
     }
 });

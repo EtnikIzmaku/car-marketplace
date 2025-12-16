@@ -156,3 +156,80 @@
     text-align: center;
   }
 }
+/* stilizimi i faqes about */
+
+.page-header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #4da3ff, #1e1e2f);
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 18px;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-section h2 {
+    margin-bottom: 15px;
+    color: #1e1e2f;
+}
+
+.about-section p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.highlight-box {
+    background-color: #f4f6f8;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.highlight-box h3 {
+    margin-bottom: 10px;
+    color: #4da3ff;
+}
+
+.highlight-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+.back-home {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-home a {
+    text-decoration: none;
+    color: #4da3ff;
+    font-weight: bold;
+}
+
+.back-home a:hover {
+    text-decoration: underline;
+}
