@@ -15,14 +15,14 @@
         </div>
 
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="pages/cars.html">Cars</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="pages/add-car.html" id="addCarLink">Add Car</a></li>
+            <li><a href="index.php" class="active">Home</a></li>
+            <li><a href="pages/cars.php">Cars</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="pages/add-car.php" id="addCarLink">Add Car</a></li>
             <li><a href="#" id="profileLink">Profile</a></li>
             <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
-            <li><a href="login.html" id="loginBtn">Login</a></li>
+            <li><a href="login.php" id="loginBtn">Login</a></li>
         </ul>
     </nav>
     <section class="hero">
