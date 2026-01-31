@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $isLoggedIn = isset($_SESSION['user_id']);
-$isAdmin = $isLoggedIn && $_SESSION['role'] === 'admin';
+$isAdmin = $isLoggedIn && isset($_SESSION['role']) && $_SESSION['role'] === 1;
 ?>
 
 <nav class="navbar">

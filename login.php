@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $userObj->login($email, $password);
     if ($user) {
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role'] = $user['role'];
+        $_SESSION['role'] = (int)$user['role'];
         $_SESSION['full_name'] = $user['full_name'];
 
         header("Location: index.php");
