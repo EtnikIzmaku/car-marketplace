@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
-  <a href="index.html" class="back-btn"><i class="bi bi-chevron-left"></i>&nbsp; Back</a>
+  <a href="index.php" class="back-btn"><i class="bi bi-chevron-left"></i>&nbsp; Back</a>
   <div class="login-container">
     <h2>Create Your Account</h2>
     <form id="registerForm">
@@ -23,7 +23,7 @@
       <input type="password" id="confirmPassword" placeholder="Confirm your password">
       <button type="submit">Register</button>
 
-      <p class="register-link">Already have an account? <a href="login.html">Login</a></p>
+      <p class="register-link">Already have an account? <a href="login.php">Login</a></p>
     </form>
   </div>
 
