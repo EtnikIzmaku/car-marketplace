@@ -134,3 +134,14 @@ button:hover {
     align-self: flex-end; 
   }
 }
+
+.error-message {
+  color: #d9534f;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+input.invalid {
+  border-color: #d9534f;
+}

@@ -3,8 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$isLoggedIn = isset($_SESSION['user']);
-$isAdmin = $isLoggedIn && $_SESSION['user']['role'] === 'admin';
+$isLoggedIn = isset($_SESSION['user_id']);
+$isAdmin = $isLoggedIn && $_SESSION['role'] === 'admin';
 ?>
 
 <nav class="navbar">
@@ -26,7 +26,7 @@ $isAdmin = $isLoggedIn && $_SESSION['user']['role'] === 'admin';
                 <li><a href="/car-marketplace/admin/dashboard.php">Dashboard</a></li>
             <?php endif; ?>
 
-            <li><a href="/car-marketplace/backend/logout.php">Logout</a></li>
+            <li><a href="/car-marketplace/logout.php">Logout</a></li>
         <?php else: ?>
             <li><a href="/car-marketplace/login.php">Login</a></li>
         <?php endif; ?>

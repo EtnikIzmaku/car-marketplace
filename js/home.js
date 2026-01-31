@@ -1,50 +1,11 @@
-// shikon nese eshte bere login
-const isLoggedIn = localStorage.getItem("isLoggedIn");
-
-const logoutBtn = document.getElementById("logoutBtn");
-const loginBtn = document.getElementById("loginBtn");
-const addCarLink = document.getElementById("addCarLink");
-const profileLink = document.getElementById("profileLink");
-
-// ketu kontrollohet nese eshte bere login
-if (isLoggedIn === "true") {
-    logoutBtn.style.display = "inline";
-    loginBtn.style.display = "none";
-} else {
-    logoutBtn.style.display = "none";
-    loginBtn.style.display = "inline";
-}
-
-// logout
-logoutBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    localStorage.removeItem("isLoggedIn");
-    alert("Logged out successfully");
-    window.location.reload();
-});
-
-//user duhet te jete log in qe te shtoje veture
-addCarLink.addEventListener("click", function (e) {
-    if (isLoggedIn !== "true") {
-        e.preventDefault();
-        alert("You must be logged in to add a car.");
-        window.location.href = "login.html";
-    }
-});
-
-// user duhet te jete log in qe te shikoje profilin
-profileLink.addEventListener("click", function (e) {
-    if (isLoggedIn !== "true") {
-        e.preventDefault();
-        alert("You must be logged in to view your profile.");
-        window.location.href = "login.html";
-    }
-});
-
 function searchCars() {
-    const brand = document.getElementById("brand").value;
-    const model = document.getElementById("model").value;
-    const price = document.getElementById("price").value;
+    const brandEl = document.getElementById("brand");
+    const modelEl = document.getElementById("model");
+    const priceEl = document.getElementById("price");
+
+    const brand = brandEl ? brandEl.value : '';
+    const model = modelEl ? modelEl.value : '';
+    const price = priceEl ? priceEl.value : '';
 
     alert(
         "Search values:\n" +
@@ -59,11 +20,17 @@ const slides = document.querySelectorAll("#carSlider img");
 let currentSlide = 0;
 
 function showSlide(index) {
+    if (!slides || slides.length === 0) return;
     slides.forEach(slide => slide.classList.remove("active"));
     slides[index].classList.add("active");
 }
 
-setInterval(() => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}, 3500); // nderron slided pas 3.5 sekondave
+if (slides && slides.length > 0) {
+    showSlide(0);
+    if (slides.length > 1) {
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 3500); // nderron slided pas 3.5 sekondave
+    }
+}

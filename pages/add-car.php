@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/cars.css">
 </head>
 <body>
-    <?php include 'includes/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
     <section class="add-car-section">
         <h2>Add Your Car</h2>
