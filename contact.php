@@ -7,24 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo-white.png" alt="BLITZ Auto Market">
-            <span>BLITZ Auto Market</span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pages/cars.html">Cars</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="pages/add-car.html" id="addCarLink">Add Car</a></li>
-            <li><a href="#" id="profileLink">Profile</a></li>
-            <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
-            <li><a href="login.html" id="loginBtn">Login</a></li>
-        </ul>
-    </nav>
+    <?php include 'includes/header.php'; ?>
 
     <section class="contact-section">
         <h1>Contact Us</h1>

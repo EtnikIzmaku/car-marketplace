@@ -4,27 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLITZ Auto Market</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <!--nav bar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo-white.png" alt="BLITZ Auto Market">
-            <span>BLITZ Auto Market</span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.php" class="active">Home</a></li>
-            <li><a href="pages/cars.php">Cars</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="pages/add-car.php" id="addCarLink">Add Car</a></li>
-            <li><a href="#" id="profileLink">Profile</a></li>
-            <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
-            <li><a href="login.php" id="loginBtn">Login</a></li>
-        </ul>
-    </nav>
+    <?php include 'includes/header.php'; ?>
     <section class="hero">
         <h1>BLITZ Auto Market</h1>
         <p>Buy & Sell Cars with Confidence</p>
@@ -75,7 +59,7 @@
                 <h3>BMW M5 F90</h3>
                 <p>Year: 2019</p>
                 <p class="price">$32,000</p>
-                <a href="pages/car-details.html" class="btn">View Details</a>
+                <a href="pages/car-details.php" class="btn">View Details</a>
             </div>
 
             <div class="car-card">

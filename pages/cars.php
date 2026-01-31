@@ -8,23 +8,8 @@
     <link rel="stylesheet" href="../css/cars.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo-white.png" alt="BLITZ Auto Market">
-            <span>BLITZ Auto Market</span>
-        </div>
+    <?php include '../includes/header.php'; ?>
 
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="cars.html" class="active">Cars</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="add-car.html" id="addCarLink">Add Car</a></li>
-            <li><a href="#" id="profileLink">Profile</a></li>
-            <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
-            <li><a href="../login.html" id="loginBtn">Login</a></li>
-        </ul>
-    </nav>
     <section class="filter-section">
         <input type="text" placeholder="Brand">
         <input type="number" placeholder="Year">
