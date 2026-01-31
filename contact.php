@@ -63,5 +63,19 @@
 
     <script src="js/contact.js"></script>
     <script src="js/cars.js"></script>
+
+
+
+----- comemet------
+$db->query("INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)", [
+    $_POST['name'],
+    $_POST['email'],
+    $_POST['message']
+]);
+
+Nëse kjo s’është bërë → messages.php s’ka çka shfaq.
+
+
+
 </body>
 </html>

@@ -120,41 +120,12 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>BLITZ Auto Market</h3>
-                <p>Your trusted marketplace to buy and sell cars easily.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/cars.html">Cars</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <p>Email: support@blitzautomarket.com</p>
-                <p>Phone: +383 44 920 747</p>
-                <p>Phone: +383 49 432 007</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 BLITZ Auto Market. All rights reserved.</p>
-        </div>
-    </footer>
+
+
+     <?php include 'includes/footer.php'; ?>
+
 
     <script src="js/home.js"></script>
+
 </body>
 </html>
