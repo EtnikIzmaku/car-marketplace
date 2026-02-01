@@ -117,7 +117,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 360px; /* keep cards same height */
+    min-height: 360px;
     padding: 12px;
 }
 
@@ -125,11 +125,19 @@ body {
     transform: translateY(-5px);
 }
 
-/* make sure the image stays at top and doesn't shrink */
-.car-card img { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
 
-/* position the button nicely */
-.car-card .btn { margin-top: 12px; margin-bottom: 8px; }
+.car-card img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.car-card .btn {
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
 
 .car-card img {
     width: 100%;
@@ -216,21 +224,164 @@ body {
     font-size: 13px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 35px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .filter-section {
+        padding: 20px 15px;
+        gap: 10px;
+    }
+
+    .filter-section input {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .cars-section {
+        padding: 30px 15px;
+    }
+
+    .cars-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .car-details-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .car-image img {
+        height: 250px;
+    }
+
+    .car-info {
+        padding: 20px;
+    }
+
+    .car-info h1 {
+        font-size: 22px;
+    }
+
+    .car-description {
+        padding: 20px;
+        margin: 20px auto 0;
+    }
+
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
+        padding: 30px 20px;
+        gap: 20px;
     }
 }
 
 @media (max-width: 500px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .nav-links {
+        gap: 10px;
+        font-size: 13px;
+        flex-wrap: wrap;
     }
 
     .filter-section {
         flex-direction: column;
         gap: 10px;
+        padding: 20px 15px;
+    }
+
+    .filter-section input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .filter-section button {
+        width: 100%;
+    }
+
+    .cars-section {
+        padding: 20px 10px;
+    }
+
+    .cars-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .car-card {
+        max-width: 100%;
+    }
+
+    .car-details-container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .car-image img {
+        height: 200px;
+    }
+
+    .car-info {
+        padding: 15px;
+    }
+
+    .car-info h1 {
+        font-size: 20px;
+    }
+
+    .car-info .price {
+        font-size: 18px;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+    .car-description {
+        padding: 15px;
+    }
+
+    .add-car-section {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .add-car-form {
+        padding: 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 25px 15px;
     }
 }
 

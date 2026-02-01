@@ -7,6 +7,7 @@ $cars = $carObj->getAllCars();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars | BLITZ Auto Market</title>
     <link rel="stylesheet" href="../css/cars.css">
 </head>

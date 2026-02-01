@@ -118,10 +118,41 @@ button:hover {
   text-decoration: underline;
 }
 
-/* per responsivitet*/
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .login-container {
+    padding: 25px;
+    max-width: 100%;
+  }
+
+  .back-btn {
+    top: 15px;
+    left: 15px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 480px) {
+  body {
+    padding: 15px;
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
   .login-container {
     padding: 20px;
+    margin-top: 0;
+  }
+
+  .back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
   }
 
   .options-row {
