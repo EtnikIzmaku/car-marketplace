@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 1) {
     header("Location: login.php");
@@ -28,6 +27,17 @@ $conn = $db->getConnection();
 
     <main class="dashboard-content">
         <h2>Mesazhet e përdoruesve</h2>
+        
+        <?php
+        if (isset($_GET['deleted']) && $_GET['deleted'] == 1) {
+            echo '<p style="color:green; padding: 10px; background: #d4edda; border-radius: 6px; margin-bottom: 15px;">Mesazhi u fshi me sukses!</p>';
+        }
+        
+        if (isset($_GET['error'])) {
+            echo '<p style="color:red; padding: 10px; background: #f8d7da; border-radius: 6px; margin-bottom: 15px;">' . htmlspecialchars($_GET['error']) . '</p>';
+        }
+        ?>
+        
         <?php
         try {
             $stmt = $conn->query("SELECT * FROM messages ORDER BY created_at DESC");
