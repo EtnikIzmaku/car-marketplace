@@ -1,23 +1,40 @@
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const nameRegex = /^[A-Za-z\s]{3,}$/;
+
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        let isValid = true;
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
+        
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+        nameInput.value = name;
+        emailInput.value = email;
+        messageInput.value = message;
 
-    if (name === "" || email === "" || message === "") {
-        alert("All fields are required!");
-        return;
-    }
+        if (!nameRegex.test(name)) {
+            alert("Name must be at least 3 letters");
+            isValid = false;
+        }
 
-    if (!email.includes("@") || !email.includes(".")) {
-        alert("Please enter a valid email address!");
-        return;
-    }
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address");
+            isValid = false;
+        }
 
-    alert("Message sent successfully!");
+        if (message.length < 10) {
+            alert("Message must be at least 10 characters");
+            isValid = false;
+        }
 
-    contactForm.reset();
-});
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+}

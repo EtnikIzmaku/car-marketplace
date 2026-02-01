@@ -1,3 +1,51 @@
+<?php
+include 'backend/Database.php';
+
+$db = new Database();
+$conn = $db->getConnection();
+
+$success_message = '';
+$error_message = '';
+
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $success_message = "Mesazhi juaj u dërgua me sukses!";
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    if (empty($name) || empty($email) || empty($message)) {
+        $error_message = "Të gjitha fushat duhen të plotësohen!";
+    } elseif (strlen($name) < 3) {
+        $error_message = "Emri duhet të ketë të paktën 3 shkronja!";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error_message = "Email jo valid!";
+    } elseif (strlen($message) < 10) {
+        $error_message = "Mesazhi duhet të ketë të paktën 10 karaktere!";
+    } else {
+        try {
+            $stmt = $conn->prepare("INSERT INTO messages (name, email, message, created_at) VALUES (:name, :email, :message, NOW())");
+            $result = $stmt->execute([
+                ':name' => $name,
+                ':email' => $email,
+                ':message' => $message
+            ]);
+            
+            if ($result) {
+                header("Location: contact.php?success=1");
+                exit;
+            } else {
+                $error_message = "Ndodhi një gabim gjatë ruajtjes së mesazhit.";
+            }
+        } catch (PDOException $e) {
+            $error_message = "Ndodhi një gabim: " . htmlspecialchars($e->getMessage());
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +61,22 @@
         <h1>Contact Us</h1>
         <p>Have questions? Get in touch with us.</p>
 
-        <form id="contactForm" class="contact-form">
-            <input type="text" id="name" placeholder="Your Name">
-            <input type="email" id="email" placeholder="Your Email">
-            <textarea id="message" placeholder="Your Message"></textarea>
+        <?php if ($success_message): ?>
+            <p style='color:green; text-align:center; padding: 10px;'><?php echo htmlspecialchars($success_message); ?></p>
+        <?php endif; ?>
 
-            <button type="submit">Send Message</button>
+        <?php if ($error_message): ?>
+            <p style='color:red; text-align:center; padding: 10px;'><?php echo htmlspecialchars($error_message); ?></p>
+        <?php endif; ?>
+
+        <form id="contactForm" class="contact-form" method="POST" action="" novalidate>
+            <input type="text" id="name" name="name" placeholder="Your Name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
+            <textarea id="message" name="message" placeholder="Your Message" required><?php echo isset($_POST['message']) ? htmlspecialchars($_POST['message']) : ''; ?></textarea>
+        
+            <button type="submit" name="send_message">Send Message</button>
         </form>
+
     </section>
 
     <?php include 'includes/footer.php'; ?>
