@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="/car-marketplace/css/style.css">
 </head>
 <body>
 
@@ -26,5 +27,6 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
     </main>
 </div>
 
+<?php include '../includes/footer.php'; ?>
 </body>
 </html>

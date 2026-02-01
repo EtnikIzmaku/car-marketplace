@@ -5,6 +5,20 @@
     font-family: Arial, sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.cars-section {
+    flex: 1; 
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -84,8 +98,9 @@
 
 .cars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
     gap: 25px;
+    align-items: start;
 }
 
 .car-card {
@@ -95,11 +110,26 @@
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 360px; /* keep cards same height */
+    padding: 12px;
 }
 
 .car-card:hover {
     transform: translateY(-5px);
 }
+
+/* make sure the image stays at top and doesn't shrink */
+.car-card img { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+
+/* position the button nicely */
+.car-card .btn { margin-top: 12px; margin-bottom: 8px; }
 
 .car-card img {
     width: 100%;

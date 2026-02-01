@@ -5,6 +5,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 1) {
     exit;
 }
 
+include __DIR__ . '/../backend/Car.php';
+
 $carObj = new Car();
 $cars = $carObj->getAllCars();
 ?>
@@ -14,8 +16,9 @@ $cars = $carObj->getAllCars();
 <head>
     <title>Manage Cars</title>
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="/car-marketplace/css/style.css">
 </head>
-<body>
+<body> 
 
 <?php include 'includes/admin_header.php'; ?>
 
@@ -34,14 +37,16 @@ $cars = $carObj->getAllCars();
 
         <?php foreach ($cars as $car): ?>
         <tr>
-            <td><?= htmlspecialchars($car['title']) ?></td>
-            <td><?= $car['price'] ?> €</td>
+            <td><?= htmlspecialchars($car['brand'] . ' ' . $car['model']) ?></td>
+            <td>$<?= number_format($car['price'], 2) ?></td>
             <td><?= htmlspecialchars($car['full_name']) ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
 </main>
 </div>
+
+<?php include '../includes/footer.php'; ?>
 
 </body>
 </html>
