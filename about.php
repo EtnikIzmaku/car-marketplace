@@ -54,10 +54,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="back-home">
-            <a href="index.html">← Back to Home</a>
-        </div>
     </section>
 
     <?php include 'includes/footer.php'; ?>

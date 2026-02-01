@@ -1,8 +1,7 @@
 <?php
-include 'backend/Database.php';
+include 'backend/Message.php';
 
-$db = new Database();
-$conn = $db->getConnection();
+$messageObj = new Message();
 
 $success_message = '';
 $error_message = '';
@@ -25,22 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif (strlen($message) < 10) {
         $error_message = "Mesazhi duhet të ketë të paktën 10 karaktere!";
     } else {
-        try {
-            $stmt = $conn->prepare("INSERT INTO messages (name, email, message, created_at) VALUES (:name, :email, :message, NOW())");
-            $result = $stmt->execute([
-                ':name' => $name,
-                ':email' => $email,
-                ':message' => $message
-            ]);
-            
-            if ($result) {
-                header("Location: contact.php?success=1");
-                exit;
-            } else {
-                $error_message = "Ndodhi një gabim gjatë ruajtjes së mesazhit.";
-            }
-        } catch (PDOException $e) {
-            $error_message = "Ndodhi një gabim: " . htmlspecialchars($e->getMessage());
+        $result = $messageObj->addMessage($name, $email, $message);
+        
+        if ($result) {
+            header("Location: contact.php?success=1");
+            exit;
+        } else {
+            $error_message = "Ndodhi një gabim gjatë ruajtjes së mesazhit.";
         }
     }
 }

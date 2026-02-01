@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':model' => $_POST['model'],
         ':year' => $_POST['year'],
         ':price' => $_POST['price'],
-        ':mileage' => $_POST['mileage'],
-        ':description' => null,
+        ':mileage' => $_POST['mileage'] ?? null,
+        ':description' => $_POST['description'] ?? null,
         ':image' => $imageName,
         ':created_by' => $_SESSION['user_id']
     ]);
@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="number" name="year" placeholder="Year" required>
         <input type="number" name="price" placeholder="Price ($)" required>
         <input type="number" name="mileage" placeholder="Mileage (km)">
+        <textarea name="description" placeholder="Description" rows="4"></textarea>
         <input type="file" name="image" accept="image/*" required>
         <button type="submit">Submit Car</button>
     </form>

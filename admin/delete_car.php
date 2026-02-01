@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 1) {
     exit;
 }
 
-include '../backend/Car.php';
+include __DIR__ . '/../backend/Car.php';
 $carObj = new Car();
 
 $car_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
