@@ -31,4 +31,45 @@ class Car {
         $stmt->execute([$userId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getCarById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM cars WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteCar($id) {
+        $stmt = $this->db->prepare("DELETE FROM cars WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+
+    public function updateCar($id, $data) {
+        $sql = "UPDATE cars SET 
+                brand = :brand, 
+                model = :model, 
+                year = :year, 
+                price = :price, 
+                mileage = :mileage, 
+                description = :description";
+        
+        $params = [
+            ':brand' => $data[':brand'],
+            ':model' => $data[':model'],
+            ':year' => $data[':year'],
+            ':price' => $data[':price'],
+            ':mileage' => $data[':mileage'] ?? null,
+            ':description' => $data[':description'] ?? null,
+            ':id' => $id
+        ];
+        
+        if (isset($data[':image']) && $data[':image'] !== null) {
+            $sql .= ", image = :image";
+            $params[':image'] = $data[':image'];
+        }
+        
+        $sql .= " WHERE id = :id";
+        
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute($params);
+    }
 }
